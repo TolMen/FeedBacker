@@ -17,6 +17,6 @@ require_once 'src/controller/BDDController/connectBDD.php';
 - Check the settings afterwards? in URL, if empty redirect to login page
 */
 if (empty($_SERVER['QUERY_STRING'])) {
-    header("Location: src/views/form/loginForm");
+    header("Location: src/views/form/loginForm.php");
     throw new Exception("Redirection vers la page de connexion.");
 }
