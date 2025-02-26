@@ -21,12 +21,12 @@ session_start();
     <div class="box">
         <span class="borderLine"></span>
         <!-- Form -->
-        <form method="POST" action="../../control/UserControl/userRegist.php">
+        <form method="POST" action="../../controller/userController/userRegist.php">
             <h2>Inscription</h2>
             <!-- Input fields -->
             <div class="boxIdentity">
                 <div class="inputBox inputBoxIdentity">
-                    <input type="text" name="firt_name" pattern="[A-Za-zÀ-ÿ]+" maxlength="26" title="Le prenom peut contenir des lettres." autocomplete="off" required>
+                    <input type="text" name="first_name" pattern="[A-Za-zÀ-ÿ]+" maxlength="26" title="Le prenom peut contenir des lettres." autocomplete="off" required>
                     <span>Prénom</span>
                     <i></i>
                 </div>
