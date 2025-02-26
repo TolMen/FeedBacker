@@ -11,7 +11,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Suppression des tables dans le bon ordre
 DROP TABLE IF EXISTS exercices;
 DROP TABLE IF EXISTS controles;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS user;
 
 -- Réactive les contraintes de clé étrangère
 SET FOREIGN_KEY_CHECKS = 1;
@@ -20,12 +20,12 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 -- Création des tables :
 
--- Table `users`
-CREATE TABLE IF NOT EXISTS users (
+-- Table `user`
+CREATE TABLE IF NOT EXISTS user (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(255) NOT NULL,
-    prenom VARCHAR(255) NOT NULL,
-    mot_de_passe VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     pseudo VARCHAR(255) NOT NULL UNIQUE,
     role ENUM('prof', 'eleve') NOT NULL
 ) ENGINE=InnoDB;
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS exercices (
 -- Jeux de données
 
 -- Insertion des utilisateurs (professeur et élèves)
-INSERT INTO users (nom, prenom, mot_de_passe, pseudo, role) VALUES
+INSERT INTO user (name, first_name, password, pseudo, role) VALUES
 ('Dupont', 'Martin', SHA2('password1', 256), 'mdupont', 'prof'), 
 ('Durand', 'Sophie', SHA2('password2', 256), 'sdurand', 'eleve'), 
 ('Lemoine', 'Lucie', SHA2('password3', 256), 'llemoine', 'eleve'), 

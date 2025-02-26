@@ -1,0 +1,51 @@
+.box {
+    height: 500px;
+}
+
+/* ---------------------------------------------------------------------- */
+
+.box::before {
+    background: linear-gradient(
+        0deg,
+        transparent,
+        transparent,
+        #bafc00,
+        #bafc00,
+        #bafc00
+    );
+}
+
+.box::after {
+    background: linear-gradient(
+        0deg,
+        transparent,
+        transparent,
+        #bafc00,
+        #bafc00,
+        #bafc00
+    );
+}
+
+.borderLine::before {
+    background: linear-gradient(
+        0deg,
+        transparent,
+        transparent,
+        #02f8a6,
+        #02f8a6,
+        #02f8a6
+    );
+}
+
+.borderLine::after {
+    background: linear-gradient(
+        0deg,
+        transparent,
+        transparent,
+        #02f8a6,
+        #02f8a6,
+        #02f8a6
+    );
+}
+
+/* ---------------------------------------------------------------------- */
