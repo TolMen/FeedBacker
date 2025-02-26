@@ -9,8 +9,8 @@ USE feedbacker;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- Suppression des tables dans le bon ordre
-DROP TABLE IF EXISTS exercices;
-DROP TABLE IF EXISTS controles;
+DROP TABLE IF EXISTS exercise;
+DROP TABLE IF EXISTS control;
 DROP TABLE IF EXISTS user;
 
 -- Réactive les contraintes de clé étrangère
@@ -31,24 +31,24 @@ CREATE TABLE IF NOT EXISTS user (
 ) ENGINE=InnoDB;
 
 -- Table `controles`
-CREATE TABLE IF NOT EXISTS controles (
+CREATE TABLE IF NOT EXISTS control (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    titre VARCHAR(255) NOT NULL,
-    note_total DECIMAL(5,2) NOT NULL,
-    appreciation_generale TEXT,
+    title VARCHAR(255) NOT NULL,
+    total_score DECIMAL(4,2) NOT NULL,
+    general_appreciation TEXT,
     prof_id INT,
     eleve_id INT,
-    date_creation DATE NOT NULL,
+    created_at DATE NOT NULL,
     FOREIGN KEY (prof_id) REFERENCES users(id),
     FOREIGN KEY (eleve_id) REFERENCES users(id)
 ) ENGINE=InnoDB;
 
--- Table `exercices` modifiée avec ON DELETE CASCADE
-CREATE TABLE IF NOT EXISTS exercices (
+-- Table `exercices`
+CREATE TABLE IF NOT EXISTS exercise (
     id INT AUTO_INCREMENT PRIMARY KEY,
     controle_id INT,
-    titre VARCHAR(255) NOT NULL,
-    note DECIMAL(5,2),
+    titled VARCHAR(255) NOT NULL,
+    score DECIMAL(4,2),
     feedback TEXT,
     FOREIGN KEY (controle_id) REFERENCES controles(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
@@ -65,7 +65,7 @@ INSERT INTO user (name, first_name, password, pseudo, role) VALUES
 ('Martin', 'Pierre', SHA2('password4', 256), 'pmartin', 'eleve');
 
 -- Insertion des contrôles
-INSERT INTO controles (titre, note_total, appreciation_generale, prof_id, eleve_id, date_creation) VALUES
+INSERT INTO control (title, total_score, general_appreciation, prof_id, eleve_id, created_at) VALUES
 ("Devoir de Mathématiques - Contrôle 1", 20.00, "Bien travaillé, mais attention aux calculs", 1, 2, "2025-02-25"),
 ("Devoir de Mathématiques - Contrôle 1", 20.00, "Quelques erreurs dans les exercices pratiques", 1, 3, "2025-02-25"),
 ("Devoir de Mathématiques - Contrôle 1", 20.00, "Très bon travail, continue comme ça", 1, 4, "2025-02-25"),
@@ -73,12 +73,12 @@ INSERT INTO controles (titre, note_total, appreciation_generale, prof_id, eleve_
 ("Devoir de Mathématiques - Contrôle 2", 20.00, "Bon travail global, mais quelques erreurs à corriger", 1, 3, "2025-02-26");
 
 -- Insertion des exercices pour le premier contrôle (3 exercices)
-INSERT INTO exercices (controle_id, titre, note, feedback) VALUES
+INSERT INTO exercise (controle_id, titled, score, feedback) VALUES
 (1, "Exercice 1 : Calcul mental", 6.00, "Bonne approche, mais quelques erreurs de calcul"),
 (1, "Exercice 2 : Résolution d'équations", 7.00, "Excellente méthode, mais la réponse finale est incorrecte"),
 (1, "Exercice 3 : Analyse de graphique", 7.00, "Très bien, mais un peu plus de détails sur l'interprétation auraient été utiles");
 
 -- Insertion des exercices pour le deuxième contrôle (2 exercices)
-INSERT INTO exercices (controle_id, titre, note, feedback) VALUES
+INSERT INTO exercise (controle_id, titled, score, feedback) VALUES
 (2, "Exercice 1 : Résolution de problème", 10.00, "Très bonne gestion des calculs"),
 (2, "Exercice 2 : Analyse de données", 10.00, "Manque d'approfondissement sur la partie graphique");
