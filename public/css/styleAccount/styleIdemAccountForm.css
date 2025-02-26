@@ -1,9 +1,28 @@
 body {
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #181118;
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #0e131f;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.footer {
+    margin-top: auto;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -14,7 +33,7 @@ body {
     position: relative;
     width: 380px;
     height: 420px;
-    background: #1c1c1c;
+    background: #181118;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -22,7 +41,6 @@ body {
 .box::before {
     content: "";
     position: absolute;
-    top: -50%;
     left: -50%;
     width: 380px;
     height: 420px;
@@ -30,9 +48,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #45f3ff,
-        #45f3ff,
-        #45f3ff
+        #D19DFF,
+        #D19DFF,
+        #D19DFF
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -42,7 +60,6 @@ body {
 .box::after {
     content: "";
     position: absolute;
-    top: -50%;
     left: -50%;
     width: 380px;
     height: 420px;
@@ -50,9 +67,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #45f3ff,
-        #45f3ff,
-        #45f3ff
+        #D19DFF,
+        #D19DFF,
+        #D19DFF
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -69,7 +86,6 @@ body {
 .borderLine::before {
     content: "";
     position: absolute;
-    top: -50%;
     left: -50%;
     width: 380px;
     height: 420px;
@@ -77,9 +93,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #ff2770,
-        #ff2770,
-        #ff2770
+        #ECD9FA,
+        #ECD9FA,
+        #ECD9FA
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -90,7 +106,6 @@ body {
 .borderLine::after {
     content: "";
     position: absolute;
-    top: -50%;
     left: -50%;
     width: 380px;
     height: 420px;
@@ -98,9 +113,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #ff2770,
-        #ff2770,
-        #ff2770
+        #ECD9FA,
+        #ECD9FA,
+        #ECD9FA
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -127,7 +142,7 @@ body {
 .box form {
     position: absolute;
     inset: 4px;
-    background: #0e131f;
+    background: #181118;
     padding: 50px 40px;
     border-radius: 8px;
     z-index: 2;
@@ -136,7 +151,7 @@ body {
 }
 
 .box form h2 {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.1em;
@@ -170,7 +185,7 @@ body {
     outline: none;
     border: none;
     box-shadow: none;
-    color: #23242a;
+    color: #000;
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.5s;
@@ -182,7 +197,7 @@ body {
     left: 0;
     padding: 20px 0px 10px;
     pointer-events: none;
-    color: #8f8f8f;
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.5s;
@@ -190,7 +205,7 @@ body {
 
 .box form .inputBox input:valid ~ span,
 .box form .inputBox input:focus ~ span {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.95);
     font-size: 0.75em;
     transform: translateY(-34px);
 }
@@ -201,7 +216,7 @@ body {
     bottom: 0;
     width: 94%;
     height: 2px;
-    background: #fff;
+    background: #F4D4F4;
     border-radius: 4px;
     overflow: hidden;
     transition: 0.5s;
@@ -223,7 +238,7 @@ body {
 .box form .links a {
     margin: 10px 10px;
     font-size: 0.75em;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
 }
 
@@ -233,13 +248,14 @@ body {
     border: none;
     outline: none;
     padding: 9px 5px;
-    background: #fff;
+    background: #B658C4;
     cursor: pointer;
     font-size: 0.9em;
     border-radius: 4px;
     font-weight: 600;
     width: 125px;
     margin-top: 10px;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 .box form input[type="submit"]:active {

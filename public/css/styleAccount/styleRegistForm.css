@@ -5,46 +5,50 @@
 /* ---------------------------------------------------------------------- */
 
 .box::before {
+    top: -35%;
     background: linear-gradient(
         0deg,
         transparent,
         transparent,
-        #bafc00,
-        #bafc00,
-        #bafc00
+        #FF8DCC,
+        #FF8DCC,
+        #FF8DCC
     );
 }
 
 .box::after {
+    top: -35%;
     background: linear-gradient(
         0deg,
         transparent,
         transparent,
-        #bafc00,
-        #bafc00,
-        #bafc00
+        #FF8DCC,
+        #FF8DCC,
+        #FF8DCC
     );
 }
 
 .borderLine::before {
+    top: -35%;
     background: linear-gradient(
         0deg,
         transparent,
         transparent,
-        #02f8a6,
-        #02f8a6,
-        #02f8a6
+        #FDD1EA,
+        #FDD1EA,
+        #FDD1EA
     );
 }
 
 .borderLine::after {
+    top: -35%;
     background: linear-gradient(
         0deg,
         transparent,
         transparent,
-        #02f8a6,
-        #02f8a6,
-        #02f8a6
+        #FDD1EA,
+        #FDD1EA,
+        #FDD1EA
     );
 }
 

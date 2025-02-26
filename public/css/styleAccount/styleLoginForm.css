@@ -1,47 +1,19 @@
 /* ---------------------------------------------------------------------- */
 
 .box::before {
-    background: linear-gradient(
-        0deg,
-        transparent,
-        transparent,
-        #45f3ff,
-        #45f3ff,
-        #45f3ff
-    );
+    top: -50%;
 }
 
 .box::after {
-    background: linear-gradient(
-        0deg,
-        transparent,
-        transparent,
-        #45f3ff,
-        #45f3ff,
-        #45f3ff
-    );
+    top: -50%;
 }
 
 .borderLine::before {
-    background: linear-gradient(
-        0deg,
-        transparent,
-        transparent,
-        #ff2770,
-        #ff2770,
-        #ff2770
-    );
+    top: -50%;
 }
 
 .borderLine::after {
-    background: linear-gradient(
-        0deg,
-        transparent,
-        transparent,
-        #ff2770,
-        #ff2770,
-        #ff2770
-    );
+    top: -50%;
 }
 
 /* ---------------------------------------------------------------------- */
