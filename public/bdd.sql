@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS control (
     eleve_id INT,
     created_at DATE NOT NULL,
     FOREIGN KEY (prof_id) REFERENCES user(id),
-    FOREIGN KEY (eleve_id) REFERENCES user(id)
+    FOREIGN KEY (eleve_id) REFERENCES user(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 -- Table `exercices`
