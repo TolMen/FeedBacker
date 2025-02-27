@@ -85,6 +85,7 @@ if (isset($_POST['inscription'])) {
                     */
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['id'] = $user['id'];
+                    $_SESSION['role'] = $user['role'];
                 }
 
                 /*
@@ -92,15 +93,15 @@ if (isset($_POST['inscription'])) {
                 - Logs management by a message and a function call
                 */
                 $logWrite = new LogWriteModel();
-                $message = "ID : {$_SESSION['id']} = Inscription réussie pour l'utilisateur au pseudo '{$_SESSION['pseudo']}' - " . date("d-m-Y H:i:s") . PHP_EOL . PHP_EOL;
+                $message = "ID : {$_SESSION['id']} = Inscription réussie pour l'utilisateur au pseudo '{$_SESSION['pseudo']}' ({$_SESSION['role']}) - " . date("d-m-Y H:i:s") . PHP_EOL . PHP_EOL;
                 $logWrite->writeLog($message, "../../../logFiles/regist.log");
 
                 /*
-                - Redirection vers la page d'accueil des utilisateurs
-                - Redirect to the user's home page
+                - Redirection vers la page d'accueil
+                - Redirect to the home page
                 */
-                header('Location: test.php');
-                throw new Exception("Redirection vers la page ??");
+                header('Location: ../../views/page/home.php');
+                throw new Exception("Redirection vers la page d'accueil");
             }
         } else {
             echo '$errorsSecurAccount';

@@ -63,8 +63,8 @@ if (isset($_POST['connexion'])) {
                 - Stock les informations dans des variables de session
                 - Store the information in session variables
                 */
-                $_SESSION['id'] = $dataAuthUser['id'];
                 $_SESSION['pseudo'] = $pseudo;
+                $_SESSION['id'] = $dataAuthUser['id'];
                 $_SESSION['role'] = $dataAuthUser['role'];
 
                 /*
@@ -76,11 +76,11 @@ if (isset($_POST['connexion'])) {
                 $logWrite->writeLog($message, "../../../logFiles/login.log");
 
                 /*
-                - Redirection vers la page d'accueil des utilisateurs
-                - Redirect to the user's home page
+                - Redirection vers la page d'accueil
+                - Redirect to the home page
                 */
-                header('Location: test.php');
-                throw new Exception("Redirection vers la page ??");
+                header('Location: ../../views/page/home.php');
+                throw new Exception("Redirection vers la page d'accueil");
             } else {
                 echo 'Erreur lors de la connexion.';
             }
