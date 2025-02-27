@@ -4,6 +4,7 @@
 - Démarre une session
 - Start a session
 */
+session_name("main");
 session_start();
 
 /*
