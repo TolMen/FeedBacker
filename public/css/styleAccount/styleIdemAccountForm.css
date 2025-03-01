@@ -2,7 +2,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0;
 }
 
 .main-container {
@@ -31,7 +30,6 @@ body {
     position: relative;
     width: 380px;
     height: 420px;
-    background: #181118;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -46,9 +44,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #D19DFF,
-        #D19DFF,
-        #D19DFF
+        #8800ff,
+        #8800ff,
+        #8800ff
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -65,9 +63,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #D19DFF,
-        #D19DFF,
-        #D19DFF
+        #8800ff,
+        #8800ff,
+        #8800ff
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -91,9 +89,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #ECD9FA,
-        #ECD9FA,
-        #ECD9FA
+        #000000,
+        #000000,
+        #000000
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -111,9 +109,9 @@ body {
         0deg,
         transparent,
         transparent,
-        #ECD9FA,
-        #ECD9FA,
-        #ECD9FA
+        #000000,
+        #000000,
+        #000000
     );
     z-index: 1;
     transform-origin: bottom right;
@@ -140,7 +138,7 @@ body {
 .box form {
     position: absolute;
     inset: 4px;
-    background: #181118;
+    background: white;
     padding: 50px 40px;
     border-radius: 8px;
     z-index: 2;
@@ -149,7 +147,7 @@ body {
 }
 
 .box form h2 {
-    color: rgba(255, 255, 255, 0.95);
+    color: black;
     font-weight: 500;
     text-align: center;
     letter-spacing: 0.1em;
@@ -183,7 +181,7 @@ body {
     outline: none;
     border: none;
     box-shadow: none;
-    color: #000;
+    color: white;
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.5s;
@@ -195,7 +193,7 @@ body {
     left: 0;
     padding: 20px 0px 10px;
     pointer-events: none;
-    color: rgba(255, 255, 255, 0.95);
+    color: black;
     font-size: 1em;
     letter-spacing: 0.05em;
     transition: 0.5s;
@@ -203,7 +201,7 @@ body {
 
 .box form .inputBox input:valid ~ span,
 .box form .inputBox input:focus ~ span {
-    color: rgba(255, 255, 255, 0.95);
+    color: black;
     font-size: 0.75em;
     transform: translateY(-34px);
 }
@@ -214,7 +212,7 @@ body {
     bottom: 0;
     width: 94%;
     height: 2px;
-    background: #F4D4F4;
+    background: black;
     border-radius: 4px;
     overflow: hidden;
     transition: 0.5s;
@@ -236,7 +234,7 @@ body {
 .box form .links a {
     margin: 10px 10px;
     font-size: 0.75em;
-    color: rgba(255, 255, 255, 0.95);
+    color: black;
     text-decoration: none;
 }
 
@@ -246,14 +244,18 @@ body {
     border: none;
     outline: none;
     padding: 9px 5px;
-    background: #B658C4;
+    background: black;
     cursor: pointer;
     font-size: 0.9em;
     border-radius: 4px;
     font-weight: 600;
     width: 125px;
     margin-top: 10px;
-    color: rgba(255, 255, 255, 0.95);
+    color: white;
+}
+
+.box form input[type="submit"]:hover {
+    background: rgba(0, 0, 0, 0.75);
 }
 
 .box form input[type="submit"]:active {

@@ -2,21 +2,37 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0;
 }
 
-.main-container {
+.container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     flex-grow: 1;
 }
 
-h2 {
-    color: white;
+.card {
+    border-radius: 10px;
 }
 
-p {
-    color: white;
+.btn {
+    border-radius: 5px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+table th, table td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table th, table td {
+    padding: 10px;
 }
