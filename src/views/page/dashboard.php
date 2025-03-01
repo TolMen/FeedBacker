@@ -11,8 +11,8 @@ session_start();
     <?php include '../component/head.php'; ?>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../../public/css/styleHome/styleHome.css">
-    <title>Accueil</title>
+    <link rel="stylesheet" href="../../../public/css/styleProf/styleDashboard.css">
+    <title>Tableau de bord</title>
 </head>
 
 <body>

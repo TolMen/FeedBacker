@@ -96,12 +96,21 @@ if (isset($_POST['inscription'])) {
                 $message = "ID : {$_SESSION['id']} = Inscription réussie pour l'utilisateur au pseudo '{$_SESSION['pseudo']}' ({$_SESSION['role']}) - " . date("d-m-Y H:i:s") . PHP_EOL . PHP_EOL;
                 $logWrite->writeLog($message, "../../../logFiles/regist.log");
 
-                /*
-                - Redirection vers la page d'accueil
-                - Redirect to the home page
-                */
-                header('Location: ../../views/page/home.php');
-                throw new Exception("Redirection vers la page d'accueil");
+                if ($_SESSION['role'] == 'prof') {
+                    /*
+                    - Redirection vers le tableau de bord
+                    - Redirect to dashboard
+                    */
+                    header('Location: ../../views/page/dashboard.php');
+                    throw new Exception("Redirection vers le tableau de bord");
+                } else {
+                    /*
+                    - Redirection vers la page des élèves
+                    - Redirection to student page
+                    */
+                    header('Location: ../../views/page/studentArea.php');
+                    throw new Exception("Redirection vers la page des élèves");
+                }
             }
         } else {
             echo '$errorsSecurAccount';
