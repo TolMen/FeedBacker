@@ -23,12 +23,13 @@ require_once '../../model/userModel/userOtherModel.php';
     <?php include '../component/navbar.php' ?>
 
     <div class="container mt-4 mb-4">
+        <div class="d-flex mb-3">
+            <a href="#" class="btn btn-dark" style="margin-right: 5px;"><i class="fa-solid fa-circle-plus"></i> Classe</a>
+            <a href="#" class="btn btn-secondary"><i class="fa-solid fa-file-pen"></i> Contrôle</a>
+        </div>
         <div class="row">
-            <div class="col-md-12">
-                <div class="d-flex mb-3">
-                    <a href="#" class="btn btn-dark" style="margin-right: 5px;"><i class="fa-solid fa-circle-plus"></i> Classe</a>
-                    <a href="#" class="btn btn-secondary"><i class="fa-solid fa-file-pen"></i> Contrôle</a>
-                </div>
+            <div class="col-md-8">
+                <!-- Existing classes section -->
                 <div class="card shadow-sm">
                     <div class="card-header bg-dark text-white">Classes existantes</div>
                     <div class="card-body">
@@ -56,13 +57,13 @@ require_once '../../model/userModel/userOtherModel.php';
                                             <a href='#?id=<?= $class['id'] ?>' class='btn btn-secondary btn-sm' title="Modifier les informations de la classe">
                                                 <i class="fa-solid fa-pen"></i>
                                             </a>
-                                            <a href='delete_class.php?id=<?= $class['id'] ?>' class='btn btn-danger btn-sm' title="Supprimer la classe">
+                                            <a href='../../controller/classController/classDelete.php?id=<?= $class['id'] ?>' class='btn btn-danger btn-sm' title="Supprimer la classe">
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </td>
                                     </tr>
 
-                                    <!-- Modal window -->
+                                    <!-- Modal window for the list of students -->
                                     <div class="modal fade" id="modal-students-<?= $class['id'] ?>" tabindex="-1" aria-labelledby="modalLabel<?= $class['id'] ?>" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
@@ -95,6 +96,40 @@ require_once '../../model/userModel/userOtherModel.php';
                     </div>
                 </div>
             </div>
+
+            <!-- Adding students section -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">Ajouter un élève</div>
+                    <div class="card-body">
+                        <form action="../../controller/classController/classAddStudent.php" method="POST">
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <label class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Prénom de l'élève" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Nom</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom de l'élève" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Classe</label>
+                                <select class="form-control" id="class_id" name="class_id" required>
+                                    <?php
+                                    foreach ($classList as $class) { ?>
+                                        <option value="<?= $class['id'] ?>">
+                                            <?= $class['class_name'] ?>
+                                        </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <button type="submit" name="add_student" class="btn btn-secondary w-100"><i class="fa-solid fa-user-plus"></i> Ajouter l'élève</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
