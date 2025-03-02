@@ -47,7 +47,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             - Redirection vers la page actuel
             - Redirect to the current page
             */
-            header('Location: ../../views/page/home.php');
+            header('Location: ../../views/page/dashboard.php');
             throw new Exception("Redirection vers la page actuel");
         } else {
             echo "Erreur lors de la suppression de l'utilisateur.";
