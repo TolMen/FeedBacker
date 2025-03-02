@@ -11,7 +11,6 @@ session_start();
     <?php include '../component/head.php'; ?>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../../../public/css/styleAccount/styleIdemAccountForm.css">
     <link rel="stylesheet" href="../../../public/css/styleAccount/styleLoginForm.css">
     <title>Connexion</title>
 </head>
@@ -40,8 +39,7 @@ session_start();
                 </div>
                 <!-- End of Input fields -->
                 <div class="links">
-                    <!-- <a href="#">Forgotten password</a> -->
-                    <a href="registForm.php">Inscription</a>
+                    <a href="#">Password oublié</a>
                 </div>
                 <input type="submit" name="connexion" value="Se connecter">
             </form>
