@@ -25,6 +25,17 @@ class UserOtherModel
     }
 
     /*
+    - Cette fonction récupère toutes les informations de tout les utilisateurs d'une classe
+    - This function retrieves all the information of all the users of a class
+    */
+    public function getUserClass(PDO $bdd, $classID)
+    {
+        $recupUserClass = $bdd->prepare('SELECT * FROM user WHERE class_id = ?');
+        $recupUserClass->execute([$classID]);
+        return $recupUserClass->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /*
     - Cette fonction récupère les informations utilisateurs par son ID
     - This function retrieves user information by ID
     */
@@ -36,12 +47,23 @@ class UserOtherModel
     }
 
     /*
-    - Cette fonction supprime les informations utilisateurs
-    - This function deletes user information
+    - Cette fonction supprimer les informations utilisateurs et met à jour le nombre d'élève
+    - This function deletes user information and updates the number of students
     */
     public function deleteUser(PDO $bdd, $userId)
     {
+        $recupClassId = $bdd->prepare('SELECT class_id FROM user WHERE id = ?');
+        $recupClassId->execute([$userId]);
+        $classId = $recupClassId->fetchColumn();
+
         $deleteUser = $bdd->prepare('DELETE FROM user WHERE id = ?');
-        return $deleteUser->execute([$userId]);
+        $success = $deleteUser->execute([$userId]);
+
+        if ($success && $classId) {
+            $updateNbStudent = $bdd->prepare('UPDATE class SET nb_student = nb_student - 1 WHERE id = ? AND nb_student > 0');
+            $updateNbStudent->execute([$classId]);
+        }
+
+        return $success;
     }
 }
