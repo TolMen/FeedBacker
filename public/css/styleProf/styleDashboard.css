@@ -37,6 +37,6 @@ table th, table td {
     padding: 10px;
 }
 
-.addStudent {
+.addStudent, .controlMarge {
     margin-top: 25px;
 }
