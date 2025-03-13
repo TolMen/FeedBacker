@@ -54,9 +54,9 @@ require_once '../../model/userModel/userOtherModel.php';
                                             <button class='btn btn-info btn-sm text-white' data-bs-toggle="modal" data-bs-target="#modal-students-<?= $class['id'] ?>" title="Voir les élèves de la classe">
                                                 <i class="fa-solid fa-eye"></i>
                                             </button>
-                                            <a href='#?id=<?= $class['id'] ?>' class='btn btn-secondary btn-sm' title="Modifier les informations de la classe">
+                                            <button class='btn btn-secondary btn-sm text-white' data-bs-toggle="modal" data-bs-target="#modal-updateClass-<?= $class['id'] ?>" title="Modifier les informations de la classe">
                                                 <i class="fa-solid fa-pen"></i>
-                                            </a>
+                                            </button>
                                             <a href='../../controller/classController/classDelete.php?id=<?= $class['id'] ?>' class='btn btn-danger btn-sm' title="Supprimer la classe">
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
@@ -86,6 +86,28 @@ require_once '../../model/userModel/userOtherModel.php';
                                                             <li class='list-group-item'>Aucun élève dans cette classe</li>
                                                         <?php } ?>
                                                     </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal window to edit class information -->
+                                    <div class="modal fade" id="modal-updateClass-<?= $class['id'] ?>" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Modifier la classe : <?= htmlspecialchars($class['class_name']) ?></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="../../controller/classController/classUpdate.php" method="POST">
+                                                        <input type="hidden" name="class_id" value="<?= $class['id'] ?>">
+                                                        <div class="mb-3">
+                                                            <label for="class_name_<?= $class['id'] ?>" class="form-label">Nom de la classe</label>
+                                                            <input type="text" class="form-control" id="class_name_<?= $class['id'] ?>" name="class_name" value="<?= htmlspecialchars($class['class_name']) ?>" required>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
