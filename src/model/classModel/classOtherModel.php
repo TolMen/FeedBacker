@@ -65,4 +65,17 @@ class ClassOtherModel
         $updateClass = $bdd->prepare('UPDATE class SET class_name = ? WHERE id = ?');
         return $updateClass->execute([$newName, $classID]);
     }
+
+
+    /*
+    - Cette fonction insère les informations utilisateurs
+    - This function inserts user information
+    */
+    public function insertClass(PDO $bdd, $class_name)
+    {
+        $insertClass = $bdd->prepare('INSERT INTO class (class_name) VALUES (?)');
+        $success = $insertClass->execute([$class_name]);
+
+        return $success;
+    }
 }
