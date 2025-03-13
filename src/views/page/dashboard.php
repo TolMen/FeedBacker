@@ -3,6 +3,7 @@ session_name("main");
 session_start();
 
 require_once '../../controller/classController/classList.php';
+require_once '../../controller/controlController/controlList.php';
 require_once '../../model/userModel/userOtherModel.php';
 ?>
 
@@ -24,7 +25,6 @@ require_once '../../model/userModel/userOtherModel.php';
 
     <div class="container mt-4 mb-4">
         <div class="d-flex mb-3">
-            <a href="#" class="btn btn-dark" style="margin-right: 5px;"><i class="fa-solid fa-circle-plus"></i> Classe</a>
             <a href="#" class="btn btn-secondary"><i class="fa-solid fa-file-pen"></i> Contrôle</a>
         </div>
         <div class="row">
@@ -117,10 +117,44 @@ require_once '../../model/userModel/userOtherModel.php';
                         </table>
                     </div>
                 </div>
+
+                <!-- Existing control section -->
+                <div class="card controlMarge shadow-sm">
+                    <div class="card-header bg-dark text-white">Controle existant</div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nom du contrôle</th>
+                                    <th>Moyenne générale</th>
+                                    <th>Appréciations générales</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($controlList as $controls) { ?>
+                                    <tr>
+                                        <td><?= $controls['title'] ?></td>
+                                        <td><?= $controls['total_score'] ?></td>
+                                        <td><?= $controls['general_appreciation'] ?></td>
+                                        <td>
+                                            <button class='btn btn-secondary btn-sm text-white' data-bs-toggle="modal" data-bs-target="#modal-updateControl-<?= $controls['id'] ?>" title="Modifier les informations du contrôle">
+                                                <i class="fa-solid fa-pen"></i>
+                                            </button>
+                                            <a href='../../controller/controlController/controlDelete.php?id=<?= $controls['id'] ?>' class='btn btn-danger btn-sm' title="Supprimer le contrôle">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
-            <!-- Adding a class section -->
             <div class="col-md-4">
+                <!-- Adding a class section -->
                 <div class="card shadow-sm">
                     <div class="card-header bg-dark text-white">Ajouter une classe</div>
                     <div class="card-body">
@@ -129,15 +163,13 @@ require_once '../../model/userModel/userOtherModel.php';
                                 <label class="form-label">Nom de la classe</label>
                                 <input type="text" class="form-control" id="class_name" name="class_name" value="Classe " required>
                             </div>
-                            <button type="submit" name="add_class" class="btn btn-secondary w-100"><i class="fa-solid fa-school-circle-check"></i> Créer la classe</button>
+                            <button type="submit" name="add_class" class="btn btn-secondary w-100"><i class="fa-solid fa-school-circle-check"></i> Créer une classe</button>
                         </form>
                     </div>
                 </div>
-            </div>
 
-            <!-- Adding students section -->
-            <div class="col-md-4 ms-auto">
-                <div class="card shadow-sm">
+                <!-- Adding students section -->
+                <div class="card addStudent shadow-sm">
                     <div class="card-header bg-dark text-white">Ajouter un élève</div>
                     <div class="card-body">
                         <form action="../../controller/classController/classAddStudent.php" method="POST">
@@ -162,12 +194,11 @@ require_once '../../model/userModel/userOtherModel.php';
                                     <?php } ?>
                                 </select>
                             </div>
-                            <button type="submit" name="add_student" class="btn btn-secondary w-100"><i class="fa-solid fa-user-plus"></i> Ajouter l'élève</button>
+                            <button type="submit" name="add_student" class="btn btn-secondary w-100"><i class="fa-solid fa-user-plus"></i> Ajouter un élève</button>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
