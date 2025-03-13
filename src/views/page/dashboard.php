@@ -119,8 +119,24 @@ require_once '../../model/userModel/userOtherModel.php';
                 </div>
             </div>
 
-            <!-- Adding students section -->
+            <!-- Adding a class section -->
             <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white">Ajouter une classe</div>
+                    <div class="card-body">
+                        <form action="../../controller/classController/classAdd.php" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">Nom de la classe</label>
+                                <input type="text" class="form-control" id="class_name" name="class_name" value="Classe " required>
+                            </div>
+                            <button type="submit" name="add_class" class="btn btn-secondary w-100"><i class="fa-solid fa-school-circle-check"></i> Créer la classe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adding students section -->
+            <div class="col-md-4 ms-auto">
                 <div class="card shadow-sm">
                     <div class="card-header bg-dark text-white">Ajouter un élève</div>
                     <div class="card-body">
