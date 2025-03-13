@@ -25,10 +25,9 @@ class UserAddModel
         $success = $insertUser->execute([$first_name, $name, $passwordOne, $pseudo, $role, $class_id]);
 
         if ($success && $class_id) {
-            $updateNbStudent = $bdd->prepare('UPDATE class SET nb_student = nb_student + 1 WHERE id = ? AND nb_student > 0');
+            $updateNbStudent = $bdd->prepare('UPDATE class SET nb_student = nb_student + 1 WHERE id = ?');
             $updateNbStudent->execute([$class_id]);
         }
-
         return $success;
     }
 }
