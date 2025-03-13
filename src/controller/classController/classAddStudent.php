@@ -12,6 +12,7 @@ session_start();
 - Inclusion of necessary files
 */
 require_once '../../model/userModel/userAddModel.php';
+require_once '../../model/logModel/logWriteModel.php';
 
 if (isset($_POST['add_student'])) {
 
