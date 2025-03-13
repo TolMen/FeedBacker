@@ -119,8 +119,8 @@ require_once '../../model/userModel/userOtherModel.php';
                 </div>
             </div>
 
-            <!-- Adding a class section -->
             <div class="col-md-4">
+                <!-- Adding a class section -->
                 <div class="card shadow-sm">
                     <div class="card-header bg-dark text-white">Ajouter une classe</div>
                     <div class="card-body">
@@ -133,11 +133,9 @@ require_once '../../model/userModel/userOtherModel.php';
                         </form>
                     </div>
                 </div>
-            </div>
 
-            <!-- Adding students section -->
-            <div class="col-md-4 ms-auto">
-                <div class="card shadow-sm">
+                <!-- Adding students section -->
+                <div class="card addStudent shadow-sm">
                     <div class="card-header bg-dark text-white">Ajouter un élève</div>
                     <div class="card-body">
                         <form action="../../controller/classController/classAddStudent.php" method="POST">
@@ -167,7 +165,6 @@ require_once '../../model/userModel/userOtherModel.php';
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
