@@ -24,7 +24,6 @@ require_once '../../model/userModel/userOtherModel.php';
 
     <div class="container mt-4 mb-4">
         <div class="d-flex mb-3">
-            <a href="#" class="btn btn-dark" style="margin-right: 5px;"><i class="fa-solid fa-circle-plus"></i> Classe</a>
             <a href="#" class="btn btn-secondary"><i class="fa-solid fa-file-pen"></i> Contrôle</a>
         </div>
         <div class="row">
