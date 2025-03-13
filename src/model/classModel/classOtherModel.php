@@ -1,21 +1,21 @@
 <?php
 
-/*
+/* 
 - Inclusion de fichier nécessaire
-- Necessary file inclusion
+- Necessary file inclusion 
 */
 require_once '../../controller/BDDController/connectBDD.php';
 
-/*
+/* 
 - Classe pour gérer des fonctions diverses sur les classes
-- Class to manage various functions on classes
+- Class to manage various functions on classes 
 */
 class ClassOtherModel
 {
 
-    /*
-    - Cette fonction récupère toutes les informations de toute les classes
-    - This function retrieves all information from all classes
+    /* 
+    - Cette fonction récupère toutes les informations de toutes les classes
+    - This function retrieves all information from all classes 
     */
     public function getAllClass(PDO $bdd)
     {
@@ -24,9 +24,20 @@ class ClassOtherModel
         return $recupAllClass->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /*
-    - Cette fonction récupère les informations utilisateurs par son ID
-    - This function retrieves user information by ID
+    /* 
+    - Cette fonction récupère les informations d'une classe par son ID
+    - This function retrieves class information by ID 
+    */
+    public function getClassById(PDO $bdd, $classID)
+    {
+        $recupClass = $bdd->prepare('SELECT * FROM class WHERE id = ?');
+        $recupClass->execute([$classID]);
+        return $recupClass->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /* 
+    - Cette fonction récupère les informations d'une classe par son ID pour suppression
+    - This function retrieves class information by ID for deletion 
     */
     public function getDeleteClass(PDO $bdd, $classID)
     {
@@ -35,13 +46,23 @@ class ClassOtherModel
         return $recupDeleteClass->fetch();
     }
 
-    /*
-    - Cette fonction supprimer les informations utilisateurs et met à jour le nombre d'élève
-    - This function deletes user information and updates the number of students
+    /* 
+    - Cette fonction supprime une classe de la base de données
+    - This function deletes a class from the database 
     */
-    public function deleteClass(PDO $bdd, $classId)
+    public function deleteClass(PDO $bdd, $classID)
     {
-        $deleteUser = $bdd->prepare('DELETE FROM class WHERE id = ?');
-        return $deleteUser->execute([$classId]);
+        $deleteClass = $bdd->prepare('DELETE FROM class WHERE id = ?');
+        return $deleteClass->execute([$classID]);
+    }
+
+    /* 
+    - Cette fonction met à jour le nom d'une classe par son ID
+    - This function updates the class name by ID 
+    */
+    public function updateClass(PDO $bdd, $classID, $newName)
+    {
+        $updateClass = $bdd->prepare('UPDATE class SET class_name = ? WHERE id = ?');
+        return $updateClass->execute([$newName, $classID]);
     }
 }
